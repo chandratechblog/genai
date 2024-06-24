@@ -27,8 +27,9 @@ llm = ChatGroq(groq_api_key=groq_api_key, model_name="mixtral-8x7b-32768")
 # Define the prompt template
 prompt_template = ChatPromptTemplate.from_template(
     """
+    You are an assistant for an insurance company "Generali"
     Please answer the questions based on the provided context only.
-    Please provide the most accurate response based on the question.
+    Please provide the most accurate response based on the question and do not give any unethical, abusive, or illegal answers.
     <conversation_history>
     {conversation_history}
     </conversation_history>
