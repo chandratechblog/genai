@@ -103,10 +103,10 @@ with chat_container:
     for i, entry in enumerate(st.session_state.response_history):
         st.chat_message("user").write(entry['question'])
         st.chat_message("assistant").write(entry['response'])
-        # with st.expander("Document Similarity Search", expanded=False):
-        #     for doc in entry["context"]:
-        #         st.write(doc.page_content)
-        #         st.write("--------------------------------")
+        with st.expander("Document Similarity Search", expanded=False):
+            for doc in entry["context"]:
+                st.write(doc.page_content)
+                st.write("--------------------------------")
         feedback = st.empty()
         col1, col2 = feedback.columns([1, 0.1])
         if col1.button("👍", key=f"thumbs_up_{i}"):
