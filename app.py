@@ -76,6 +76,7 @@ if "response_history" not in st.session_state:
     st.session_state.response_history = []
 
 def get_response(question):
+    temperature = 0.7
     conversation_history = ""
     for entry in st.session_state.response_history:
         conversation_history += f"User: {entry['question']}\nBot: {entry['response']}\n"
@@ -89,6 +90,7 @@ def get_response(question):
         'input': question,
         'context': " ",  # Provide some initial context if needed
         'conversation_history': conversation_history
+        'temperature': temperature 
     })
     response_time = time.process_time() - start
     st.session_state.response_time = response_time
