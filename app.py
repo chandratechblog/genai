@@ -89,7 +89,7 @@ def get_response(question):
     response = retrieval_chain.invoke({
         'input': question,
         'context': " ",  # Provide some initial context if needed
-        'conversation_history': conversation_history
+        'conversation_history': conversation_history,
         'temperature': temperature 
     })
     response_time = time.process_time() - start
